@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박여원 - UPPER2D Creative</title>
+    <style>
+        /* Pretendard 폰트 추가 (Optional: 시스템 폰트 사용 시 제거 가능) */
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; /* Pretendard 폰트 우선 적용 */
+        }
+        
+        body {
+            background-color: #f8f9fa; /* 밝은 회색 배경 */
+            color: #333; /* 기본 글자색 */
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            font-size: 2.2rem; /* 로고 글자 크기 */
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: #fff; /* 흰색 배경 */
+            border-radius: 12px; /* 둥근 모서리 */
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block; /* 밑줄 길이 조절 */
+            color: #333;
+        }
+        
+        h2:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px; /* 밑줄과 제목 사이 간격 */
+            width: 100%;
+            height: 4px; /* 밑줄 두께 */
+            background: #5d9cec; /* 파란색 밑줄 */
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* 최소 너비 조정 */
+            gap: 20px; /* 항목 간 간격 */
+        }
+        
+        .info-item {
+            margin-bottom: 0; /* 불필요한 마진 제거 */
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #5d9cec;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; /* 태그 간 간격 */
+            margin-top: 10px;
+        }
+        
+        .skill-tag {
+            background: #e9f2fa; /* 태그 배경색 */
+            color: #4a7ab5; /* 태그 글자색 */
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap; /* 태그 줄바꿈 방지 */
+        }
+        
+        .work-area {
+            margin-bottom: 25px;
+        }
+        
+        .strength-list {
+            list-style: none; /* 기본 리스트 마커 제거 */
+            padding-left: 0;
+        }
+        
+        .strength-list li {
+            position: relative;
+            padding-left: 20px; /* 마커 공간 */
+            margin-bottom: 10px;
+        }
+
+        .strength-list li:before {
+            content: "•"; /* 커스텀 마커 */
+            color: #5d9cec; /* 마커 색상 */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        a {
+            color: #5d9cec;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4a7ab5;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            header {
+                margin-bottom: 40px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            h2:after {
+                bottom: -5px;
+                height: 3px;
+            }
+
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .work-area {
+                margin-bottom: 20px;
+            }
+
+            .strength-list li {
+                padding-left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">UPPER2D Creative</div>
+            <p class="tagline">"모던하고 심플한 2D 중심의 디자인을 추구하는 디자이너"</p>
+        </header>
+        
+        <section class="section">
+            <h2>소개</h2>
+            <p>컴퓨터를 기반으로 한 다양한 디자인 작업을 하는 전문가입니다. 특히 사용자 경험을 최우선으로 생각하며, 깔끔한 레이아웃과 웹 접근성을 중요하게 여깁니다.</p>
+        </section>
+        
+        <section class="section">
+            <h2>주요 정보</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">이름</div>
+                    <div>박여원</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">브랜드</div>
+                    <div>UPPER2D Creative</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">거주지</div>
+                    <div>서울</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">이메일</div>
+                    <div><a href="mailto:upper2d@gmail.com">upper2d@gmail.com</a></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>작업 분야 및 강점</h2>
+            <div class="work-area">
+                <div class="info-label">주요 분야</div>
+                <p>웹디자인, UI/UX, 퍼블리싱(HTML/CSS/JS), 영상, PPT 등</p>
+            </div>
+            
+            <div class="work-area">
+                <div class="info-label">업무 강점</div>
+                <ul class="strength-list">
+                    <li>웹 접근성을 고려한 설계 (ARIA, 키보드 내비게이션 등)</li>
+                    <li>UI 컴포넌트 퍼블리싱 및 문서화</li>
+                    <li>프레젠테이션 스토리텔링 및 시각화</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>보유 스킬</h2>
+            <div class="work-area">
+                <div class="info-label">디자인</div>
+                <div class="skill-container">
+                    <span class="skill-tag">UI/UX</span>
+                    <span class="skill-tag">Web Design</span>
+                    <span class="skill-tag">Illustration</span>
+                </div>
+            </div>
+            
+            <div class="work-area">
+                <div class="info-label">개발</div>
+                <div class="skill-container">
+                    <span class="skill-tag">HTML/CSS/JS</span>
+                    <span class="skill-tag">jQuery</span>
+                    <span class="skill-tag">Vanilla JS</span>
+                    <span class="skill-tag">Accessibility</span>
+                </div>
+            </div>
+            
+            <div class="work-area">
+                <div class="info-label">기타</div>
+                <div class="skill-container">
+                    <span class="skill-tag">PPT</span>
+                    <span class="skill-tag">Motion</span>
+                </div>
+            </div>
+            
+            <div class="work-area">
+                <div class="info-label">사용 툴</div>
+                <div class="skill-container">
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">Illustrator</span>
+                    <span class="skill-tag">Premiere</span>
+                    <span class="skill-tag">After Effects</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 박여원 - UPPER2D Creative. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
