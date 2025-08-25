@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPPER2D · 박여원 — 자기소개</title>
+  <meta name="description" content="UPPER2D Creative · 박여원 — 모던하고 심플한 웹디자인/UI·UX, 퍼블리싱, 영상 작업 포트폴리오 소개 페이지." />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --panel: #121218;
+      --text: #e8e8ef;
+      --muted: #a3a3b2;
+      --accent: #6A0DAD; /* 사용자 선호 보라 포인트 */
+      --card: #171722;
+      --border: #262636;
+      --ring: #7c3aed;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    /* Light mode (토글 가능) */
+    .theme--light {
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --text: #0f1222;
+      --muted: #5b5f73;
+      --card: #ffffff;
+      --border: #e7e8ef;
+      --ring: #6A0DAD;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, \"Helvetica Neue\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\";
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+    * { box-sizing: border-box; }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+    }
+    .skip-link:focus { left: 16px; top: 12px; width: auto; height: auto; padding: 8px 12px; background: var(--panel); color: var(--text); border-radius: 8px; outline: 2px solid var(--ring); }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 18px; background: var(--panel); border: 1px solid var(--border);
+      border-radius: 14px; box-shadow: var(--shadow);
+      position: sticky; top: 14px; backdrop-filter: saturate(140%) blur(8px); z-index: 10;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;
+    }
+    .logo {
+      width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), #3b82f6);
+      display: grid; place-items: center; font-weight: 800; letter-spacing: .5px;
+      box-shadow: 0 6px 18px rgba(106, 13, 173, .45);
+    }
+    .logo span { font-size: 14px; }
+    .brand-title { font-weight: 700; font-size: 15px; }
+
+    nav { display: flex; gap: 10px; align-items: center; }
+    .btn {
+      appearance: none; border: 1px solid var(--border); background: var(--card); color: var(--text);
+      padding: 8px 12px; border-radius: 12px; cursor: pointer; text-decoration: none; font-weight: 600; font-size: 14px;
+    }
+    .btn:hover { border-color: var(--muted); }
+    .btn--accent { border-color: transparent; background: linear-gradient(135deg, var(--accent), #3b82f6); color: white; }
+
+    main { margin-top: 22px; display: grid; gap: 20px; }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card-body { padding: 24px; }
+
+    .hero {
+      display: grid; gap: 18px; padding: 28px; align-items: center;
+      background:
+        radial-gradient(1200px 400px at 10% -18%, rgba(124,58,237,.16), transparent 60%),
+        radial-gradient(900px 300px at 100% 0%, rgba(59,130,246,.12), transparent 60%),
+        var(--card);
+    }
+    .kicker { color: var(--muted); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+    h1 { font-size: clamp(26px, 3.6vw, 40px); line-height: 1.2; margin: 2px 0 6px; }
+    .highlight {
+      background: linear-gradient(90deg, var(--accent), #3b82f6);
+      -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 800;
+    }
+    .subtitle { color: var(--muted); font-size: 15px; }
+
+    .meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+    .pill { border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); }
+
+    .grid { display: grid; gap: 16px; }
+    @media (min-width: 880px) { .grid.cols-2 { grid-template-columns: 1.2fr .8fr; } }
+
+    .list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .list li { padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); }
+
+    .skills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .tag { padding: 8px 10px; border: 1px dashed var(--border); border-radius: 10px; font-weight: 600; font-size: 13px; }
+
+    footer { margin-top: 18px; color: var(--muted); font-size: 13px; text-align: center; }
+
+    /* 접근성: 포커스 가시성 */
+    :where(a, button, .btn, .tag):focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+    /* 인쇄용 최소 스타일 */
+    @media print {
+      header, .btn, .pill { display: none !important; }
+      body { background: white; color: black; }
+      .card, .hero { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">본문으로 바로가기</a>
+  <div class="container">
+    <header aria-label="상단 내비게이션">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true"><span>UP</span></div>
+        <div class="brand-title">UPPER2D Creative</div>
+      </a>
+      <nav>
+        <a class="btn" href="#about">소개</a>
+        <a class="btn" href="#skills">스킬</a>
+        <a class="btn" href="#contact">연락처</a>
+        <button class="btn" id="themeToggle" aria-pressed="false" aria-label="테마 전환">🌗 테마</button>
+        <a class="btn btn--accent" href="mailto:upper2d@gmail.com">이메일 보내기</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="card hero" aria-labelledby="title">
+        <div>
+          <div class="kicker">Self‑Introduction</div>
+          <h1 id="title">안녕하세요, <span class="highlight">박여원</span>입니다.<br/>모던하고 심플한 <span class="highlight">2D‑centric</span> 디자인을 추구해요.</h1>
+          <p class="subtitle">웹디자인 · UI/UX · 퍼블리싱 · 영상 · PPT 등 컴퓨터 기반의 다양한 디자인 작업을 하고 있습니다.</p>
+          <div class="meta" aria-label="간단 정보">
+            <span class="pill">브랜드: UPPER2D Creative</span>
+            <span class="pill">거주: 서울</span>
+            <span class="pill">이메일: upper2d@gmail.com</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid cols-2">
+        <!-- About -->
+        <section id="about" class="card" aria-labelledby="about-title">
+          <div class="card-body">
+            <h2 id="about-title" style="margin:0 0 8px; font-size:22px;">소개</h2>
+            <p>사용자 경험을 최우선에 두고, <strong>깔끔한 레이아웃</strong>과 <strong>접근성</strong>을 고려한 디자인을 지향합니다. 
+              작은 디테일이 전체 인상을 바꾼다고 믿으며, 일관된 <em>시각 언어</em>와 <em>타이포그래피</em>를 통해 메시지를 명확히 전달합니다.</p>
+            <ul class="list" aria-label="업무 강점">
+              <li>웹 접근성(ARIA, 키보드 내비게이션, 스크린리더) 고려 설계</li>
+              <li>UI 컴포넌트 퍼블리싱 및 문서화(디자인 시스템 지향)</li>
+              <li>프레젠테이션(보고용/Pitch) 스토리텔링과 시각화</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="card" aria-labelledby="skills-title">
+          <div class="card-body">
+            <h2 id="skills-title" style="margin:0 0 8px; font-size:22px;">스킬</h2>
+            <div class="skills" role="list">
+              <span class="tag" role="listitem">UI/UX</span>
+              <span class="tag" role="listitem">Web Design</span>
+              <span class="tag" role="listitem">Publishing (HTML/CSS/JS)</span>
+              <span class="tag" role="listitem">Accessibility</span>
+              <span class="tag" role="listitem">Illustration</span>
+              <span class="tag" role="listitem">PPT / Motion</span>
+              <span class="tag" role="listitem">jQuery · Vanilla JS</span>
+              <span class="tag" role="listitem">Adobe PS/AI/PR/AE</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Contact -->
+      <section id="contact" class="card" aria-labelledby="contact-title">
+        <div class="card-body" style="display:grid; gap:10px;">
+          <h2 id="contact-title" style="margin:0; font-size:22px;">연락하기</h2>
+          <p style="margin:0; color: var(--muted);">프로젝트 제안이나 협업 문의는 언제든 환영합니다.</p>
+          <div style="display:flex; gap:10px; flex-wrap: wrap;">
+            <a class="btn btn--accent" href="mailto:upper2d@gmail.com" aria-label="이메일 보내기">✉️ 이메일</a>
+            <a class="btn" href="#" aria-label="포트폴리오 보기(추가 예정)">포트폴리오(추가 예정)</a>
+            <a class="btn" href="#" aria-label="노션 소개서 보기(추가 예정)">노션 소개서(추가 예정)</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> UPPER2D Creative · 박여원 — 만든 이의 정체성을 담은 심플 & 모던 디자인
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // 연도 표시
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 테마 토글: 시스템 선호 + 저장 유지
+    (function themeInit(){
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const apply = (mode) => {
+        document.documentElement.classList.toggle('theme--light', mode === 'light');
+        document.getElementById('themeToggle').setAttribute('aria-pressed', mode === 'light');
+      };
+      apply(saved ? saved : (prefersDark ? 'dark' : 'light'));
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const isLight = document.documentElement.classList.toggle('theme--light');
+        const mode = isLight ? 'light' : 'dark';
+        localStorage.setItem('theme', mode);
+        document.getElementById('themeToggle').setAttribute('aria-pressed', isLight);
+      });
+    })();
+  </script>
+</body>
+</html>
